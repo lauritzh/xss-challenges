@@ -11,9 +11,8 @@
     <h2>Rules:</h2>
     <ul>
         <li>To solve the challenges, pop an <b>alert(document.domain)</b>*. 🐙</li>
-        <li>All solutions must work in current Chrome and Firefox versions. 🦊</li>
     </ul>
-<i>*it is crucial to evaluate <b>document.domain</b></i>
+<i>*it is crucial to evaluate <b>alert(document.domain)</b>,  it is not sufficient to use <b>alert(1)</b>!</i>
     <h2>Challenges:</h2>
     <ol>
         <li><a href="challenge1/challenge1.php">Challenge 1</a></li>
